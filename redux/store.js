@@ -1,5 +1,5 @@
 import { applyMiddleware, compose, createStore } from 'redux';
-import reducer from './reducer';
+import rootReducer from './reducers/index';
 import createLogger from 'redux-logger';
 
 const finalCreateStore = compose(
@@ -7,5 +7,5 @@ const finalCreateStore = compose(
 )(createStore);
 
 export default function configureStore (initialState = {todo: []}) {
-	return finalCreateStore(reducer, initialState);
+	return finalCreateStore(rootReducer, initialState);
 }
